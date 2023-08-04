@@ -1,11 +1,12 @@
 //index.js
-import { selectUsuarios } from "./bd.js";
 import dotenv from "dotenv";
+dotenv.config();
+import { selectUsuarios } from "./bd.js";
 import express from "express";      // Requisição do pacote do express
 const app = express();              // Instancia o Express
 const port = 3000;                  // Define a porta
 
-dotenv.config();
+
 
 app.get("/usuarios", async (req, res) => {
   console.log("Rota GET/usuarios solicitada");
