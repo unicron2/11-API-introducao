@@ -1,12 +1,12 @@
 //index.js
 import dotenv from "dotenv";
 dotenv.config();
-import { selectUsuarios, selectUsuario } from "./bd.js";
+import { selectUsuarios, selectUsuario, insertUsuario } from "./bd.js";
 import express from "express";      // Requisição do pacote do express
 const app = express();              // Instancia o Express
 const port = 3000;                  // Define a porta
 
-
+app.use(express.json());
 
 app.get("/usuarios", async (req, res) => {
   console.log("Rota GET/usuarios solicitada");
@@ -18,6 +18,7 @@ app.get("/usuarios", async (req, res) => {
   }
 });
 
+
 app.get("/usuario/:id", async (req, res) => {
   console.log("Rota GET /usuario solicitada");
   try {
@@ -28,6 +29,18 @@ app.get("/usuario/:id", async (req, res) => {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
 });
+
+
+app.post("/usuario", async (req, res) => {
+  console.log("Rota POST /usuario solicitada");
+  try {
+    await insertUsuario(req.body);
+    res.status(201).json({ message: "Usuário inserido com sucesso!" });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message || "Erro!" });
+  }
+});
+
 
 app.get("/", (req, res) => {        // Cria a rota da raiz do projeto
   res.json({
