@@ -68,6 +68,7 @@ app.delete("/usuario/:id", async (req, res) => {
 });
 
 
+
 app.patch("/usuario", async (req, res) => {
   console.log("Rota PATCH /usuario solicitada");
   try {
