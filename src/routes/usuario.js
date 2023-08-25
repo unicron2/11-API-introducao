@@ -7,7 +7,6 @@ import {
   deleteUsuario,
   updateUsuario,
 } from "../db/index.js";
-
 const router = Router();
 
 router.get("/usuario", async (req, res) => {
