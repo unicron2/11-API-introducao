@@ -1,5 +1,13 @@
 import { Router } from "express";
 
+import {
+  selectUsuario,
+  selectUsuarios,
+  insertUsuario,
+  deleteUsuario,
+  updateUsuario,
+} from "../db/index.js";
+
 const router = Router();
 
 router.get("/usuario", async (req, res) => {
@@ -11,7 +19,7 @@ router.get("/usuario", async (req, res) => {
       res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
   });
-  export default router;
+  
 
 router.get("/usuarios", async (req, res) => {
     console.log("Rota GET/usuarios solicitada");
@@ -71,3 +79,5 @@ router.get("/usuarios", async (req, res) => {
       res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
   });
+  
+  export default router;
