@@ -24,3 +24,4 @@ app.listen(port, () => {            // Um socket para "escutar" as requisições
 
 app.use(roteadorUsuario);
 app.use(roteadorLogin);
+app.use(express.urlencoded({ extended: true }));
