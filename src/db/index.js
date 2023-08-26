@@ -48,6 +48,7 @@ async function updateUsuario(data) {
   await client.query(query, usuario);
 }
 
+
 async function autenticarUsuario(email, senha) {
   const client = await connect();
   const query = "SELECT * FROM usuario WHERE email = $1 AND senha = $2";
