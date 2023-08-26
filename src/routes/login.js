@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { Jwt } from "jsonwebtoken";
-import { autenticarUsuario } from "../db";
+import jwt from "jsonwebtoken";
+import { autenticarUsuario } from "../db/index.js";
 
 const router = Router();
 
@@ -12,7 +12,7 @@ router.post("/login", async (req, res) => {
 
         if(usuario !== undefined){
             const token = jwt.sign({ user: usuario.id }, process.env.SECRET, {
-                expiresIn: 300, 
+                expiresIn: 60*60*24*30, 
             });
         
         res.status(202).json({ token: token });

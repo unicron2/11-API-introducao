@@ -6,6 +6,7 @@ import {
   insertUsuario,
   deleteUsuario,
   updateUsuario,
+  
 } from "../db/index.js";
 const router = Router();
 
