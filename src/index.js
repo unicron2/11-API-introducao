@@ -1,10 +1,11 @@
 //index.js
 import roteadorUsuario from "./routes/usuario.js";
 import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import roteadorLogin from "./routes/login.js";
 
-dotenv.config();
+
 
 const app = express();              // Instancia o Express
 const port = 3000;                  // Define a porta
